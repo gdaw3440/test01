@@ -29,7 +29,6 @@ public class ApiClient {
         headers.add("Authorization",key);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParam("name",list);
-        builder.encode();
         HttpEntity<String> entity = new HttpEntity<>(headers);
         return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, ProductResponseDto.class).getBody();
     }
